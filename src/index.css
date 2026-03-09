@@ -2,6 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+/* EASY FIX - STOP MEGA SIZED RANDOM IMAGES + RESTORE BASIC LAYOUT */
+img {
+  max-width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+
+/* Simple grid for cases (bypasses Tailwind purge) */
+.home-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)) !important;
+  gap: 20px !important;
+  padding: 20px !important;
+}
+
 body {
     font-family: sans-serif;
 }
