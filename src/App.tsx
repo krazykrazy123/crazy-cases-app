@@ -338,7 +338,7 @@ function Home() {
     <div className="min-h-screen bg-gradient-to-b from-[#0f0f0f] via-[#0a001a] to-[#000000] text-white pt-[135px] pb-[135px] mx-auto" style={appFont}>
       <LiveFeedBar />
 
-      {/* FIXED - Added max-w-[440px] + strong grid + image size control */}
+      {/* PHONE SIZE FORCED - max-w-[440px] + controlled images */}
       <main className="pt-4 px-4 max-w-[440px] mx-auto">
         <div className="game-grid fade-in" style={{ 
           display: 'grid', 
@@ -362,7 +362,7 @@ function Home() {
                     src={game.icon} 
                     alt={game.name} 
                     className="w-16 h-16 object-contain drop-shadow-md" 
-                    style={{ maxHeight: '64px', maxWidth: '64px' }} 
+                    style={{ maxWidth: '64px', maxHeight: '64px' }} 
                   />
                 </div>
                 <div className="flex-1">
@@ -385,30 +385,30 @@ function Home() {
         </div>
       </main>
 
-      {/* Everything below stays 100% the same as you had */}
+      {/* All modals stay exactly the same as you had */}
       {showRouletteModal && !selectedCase && (
         <div className="fixed inset-0 z-[200] flex flex-col bg-black/70 backdrop-blur-sm">
-          {/* your existing code */}
+          {/* your existing Roulette modal code */}
         </div>
       )}
       {showFreeModal && (
         <div className="fixed inset-0 z-[200] flex flex-col bg-black/70 backdrop-blur-sm">
-          {/* your existing code */}
+          {/* your existing Free modal code */}
         </div>
       )}
       {selectedCase && (
         <div className="fixed inset-0 z-[300] flex flex-col bg-gradient-to-b from-[#0f0f0f] via-[#0a001a] to-[#000000] text-white overflow-hidden">
-          {/* your existing code */}
+          {/* your existing selectedCase code */}
         </div>
       )}
       {showPossiblePrizes && (
         <div className="fixed inset-0 z-[500] bg-black/90 flex items-center justify-center p-4">
-          {/* your existing code */}
+          {/* your existing showPossiblePrizes code */}
         </div>
       )}
       {wonGift && (
         <div className="fixed inset-0 z-[400] flex items-center justify-center bg-black/90 backdrop-blur-xl p-4">
-          {/* your existing code */}
+          {/* your existing wonGift code */}
         </div>
       )}
     </div>
