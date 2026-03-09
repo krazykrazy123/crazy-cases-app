@@ -89,7 +89,7 @@ function DepositModal({ isOpen, onClose }) {
         </div>
         <div className="p-6 overflow-y-auto" style={{ maxHeight: 'calc(85vh - 64px)' }}>
           <p className="text-center text-gray-300 mb-8">Choose how you want to deposit.</p>
-          <div className="grid grid-cols-2 gap-5 w-full max-w-[440px] mx-auto">
+          <div className="game-grid fade-in">
             <div className="bg-[#1e1e2e] rounded-3xl p-5 text-center shadow-xl">
               <h3 className="text-xl font-bold text-white mb-2">Deposit Stars</h3>
               <p className="text-yellow-400 mb-4">★100 = $1</p>
@@ -371,7 +371,7 @@ function Home() {
               <button onClick={() => setShowRouletteModal(false)} className="text-white text-4xl hover:text-red-400 transition">×</button>
             </div>
             <div className="p-6 overflow-y-auto" style={{ maxHeight: 'calc(85vh - 64px)' }}>
-              <div className="grid grid-cols-2 gap-5 w-full max-w-[440px] mx-auto">
+              <div className="game-grid fade-in">
                 {rouletteCases.map((caseItem) => (
                   <div
                     key={caseItem.id}
@@ -405,7 +405,7 @@ function Home() {
               <button onClick={() => setShowFreeModal(false)} className="text-white text-4xl hover:text-red-400 transition">×</button>
             </div>
             <div className="p-6 overflow-y-auto" style={{ maxHeight: 'calc(85vh - 64px)' }}>
-              <div className="grid grid-cols-2 gap-5 w-full max-w-[440px] mx-auto">
+              <div className="game-grid fade-in">
                 {[
                   { id: 'daily', name: 'Daily Free Case', price: 'Free', icon: 'assets/free case.png' },
                   { id: 'promo', name: 'Promo Code Case', price: 'Free', icon: 'assets/cases.png' },
@@ -794,7 +794,7 @@ function Free() {
     <div className="min-h-screen bg-gradient-to-b from-[#0f0f0f] via-[#0a001a] to-[#000000] text-white pt-[135px] pb-[135px] mx-auto flex flex-col items-center overflow-y-auto" style={appFont}>
       <LiveFeedBar />
       <h1 className="text-3xl font-bold text-center text-white mb-6">Free Cases</h1>
-      <div className="grid grid-cols-2 gap-5 w-full max-w-[440px]">
+      <div className="game-grid fade-in">
         {freeCases.map((caseItem) => (
           <div
             key={caseItem.id}
