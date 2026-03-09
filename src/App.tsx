@@ -15,21 +15,19 @@ const appFont = {
   fontWeight: 400,
 };
 
-
+// Client-only wrapper for TonConnectUIProvider (fixes manifest/SSR in Telegram)
 function ClientTonConnectProvider({ children }) {
-  
   if (typeof window === 'undefined') {
-    return <>{children}</>; 
+    return <>{children}</>; // safe during SSR/hydration
   }
-
   return (
-    <TonConnectUIProvider manifestUrl="https://crazy-cases-firebase.vercel.app//tonconnect-manifest.json">
+    <TonConnectUIProvider manifestUrl="https://crazy-cases-app.vercel.app/tonconnect-manifest.json">
       {children}
     </TonConnectUIProvider>
   );
 }
 
-function CustomHeader({ balance = { TON: 0, STARS: 0 }, onDepositClick }) {
+function CustomHeader({ balance = { TON: 0, STARS: 47 }, onDepositClick }) {
   const wallet = useTonWallet();
   const [tonConnectUI] = useTonConnectUI();
 
@@ -49,7 +47,7 @@ function CustomHeader({ balance = { TON: 0, STARS: 0 }, onDepositClick }) {
           {balance.TON.toFixed(2)} TON / {balance.STARS} Stars
         </span>
       ) : (
-        <span className="text-transparent">Placeholder</span>
+        <span className="text-transparent">Placeholder</span> // keeps layout balanced
       )}
 
       <img
@@ -184,7 +182,7 @@ function BottomNav() {
       style={{
         paddingBottom: 'env(safe-area-inset-bottom)',
         height: '90px',
-        ...appFont  // spread the appFont styles here (fontFamily, fontWeight)
+        ...appFont
       }}
       className="fixed bottom-0 left-0 right-0 bg-[#0f0f0f]/95 backdrop-blur-lg border-t border-gray-800/50 p-4 flex justify-around items-center text-xs z-50 shadow-2xl"
     >
@@ -1462,7 +1460,7 @@ function Upgrade() {
               {!upgradeResult.success && <p className="text-red-400 mt-2">Better luck next time!</p>}
             </div>
             <div className="px-6 pb-8 grid grid-cols-2 gap-4">
-              <button className="py-4 bg-purple-600 hover:bg-purple-700 rounded-2xl font-bold text-lg shadow-lg transition active:scale-[0.985] text-white">
+              <button className="py-4 bg-purple-600 hover:bg-purple-700 rounded-2xl font-bold text-lg shadow-lg transition active:scale-[0.985]">
                 Sell Instant
               </button>
               <button
@@ -1676,8 +1674,8 @@ function Raffles() {
 
 function Tasks() {
   const [taskStates, setTaskStates] = useState(
-  Array.from({ length: 9 }, () => ({ status: 'pending' }))
-);
+    Array.from({ length: 9 }, () => ({ status: 'pending' }))
+  );
   const tasks = [
     { id: 0, name: "Join official group chat", link: "https://t.me/CrazyCasesChat", type: "join", bonus: "+5 🦴" },
     { id: 1, name: "Join official Crazy Cases channel", link: "https://t.me/CrazyCasesOfficial", type: "join", bonus: "+5 🦴" },
@@ -2225,13 +2223,7 @@ function Rolls() {
             </div>
             <div className="grid grid-cols-3 gap-3 mb-8">
               {(depositCurrency === 'STARS' ? [500, 2000, 5000] : [1, 5, 10]).map((val) => (
-                <button 
-  key={val} 
-  onClick={() => setDepositAmount(((parseFloat(depositAmount) || 0) + val).toString())}
-  className="bg-[#1e1e2e] hover:bg-[#2a2a3a] py-4 rounded-2xl text-xl font-bold"
->
-  +{val}
-</button>
+                <button key={val} onClick={() => setDepositAmount(((parseFloat(depositAmount) || 0) + val).toString())} className="bg-[#1e1e2e] hover:bg-[#2a2a3a] py-4 rounded-2xl text-xl font-bold">+{val}</button>
               ))}
             </div>
             <div className="bg-[#1e1e2e] rounded-2xl p-6 mb-8">
@@ -2289,11 +2281,7 @@ function App() {
   return (
     <ClientTonConnectProvider>
       <div className="relative min-h-screen w-full bg-gradient-to-b from-[#0f0f0f] via-[#0a001a] to-[#000000] text-white overflow-y-auto" style={appFont}>
-        <CustomHeader 
-          isConnected={isConnected} 
-          balance={{ TON: 0, STARS: 47 }}  // use object instead of string
-          onDepositClick={() => setShowDeposit(true)} 
-        />
+        <CustomHeader isConnected={isConnected} balance={{ TON: 0, STARS: 47 }} onDepositClick={() => setShowDeposit(true)} />
         <LiveFeedBar />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -2315,7 +2303,6 @@ function App() {
   );
 }
 
-// Root render
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
