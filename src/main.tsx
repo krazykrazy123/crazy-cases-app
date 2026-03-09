@@ -3,14 +3,24 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.tsx';
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
-import './index.css'; // if you have global styles
+import './index.css';
+
+function ErrorBoundary({ children }) {
+  return (
+    <React.Suspense fallback={<div style={{ color: 'red', padding: '20px' }}>Loading...</div>}>
+      {children}
+    </React.Suspense>
+  );
+}
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <TonConnectUIProvider manifestUrl="https://your-real-domain.com/tonconnect-manifest.json">
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </TonConnectUIProvider>
+    <ErrorBoundary>
+      <TonConnectUIProvider manifestUrl="https://crazy-cases-app-test.vercel.app/tonconnect-manifest.json">
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </TonConnectUIProvider>
+    </ErrorBoundary>
   </React.StrictMode>
 );
