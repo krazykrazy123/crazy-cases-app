@@ -180,7 +180,14 @@ function LiveFeedBar() {
 
 function BottomNav() {
   return (
-    <nav style={{ paddingBottom: 'env(safe-area-inset-bottom)', height: '90px' }} className="fixed bottom-0 left-0 right-0 bg-[#0f0f0f]/95 backdrop-blur-lg border-t border-gray-800/50 p-4 flex justify-around items-center text-xs z-50 shadow-2xl" style={appFont}>
+    <nav
+      style={{
+        paddingBottom: 'env(safe-area-inset-bottom)',
+        height: '90px',
+        ...appFont  // spread the appFont styles here (fontFamily, fontWeight)
+      }}
+      className="fixed bottom-0 left-0 right-0 bg-[#0f0f0f]/95 backdrop-blur-lg border-t border-gray-800/50 p-4 flex justify-around items-center text-xs z-50 shadow-2xl"
+    >
       <Link to="/" className="flex-1 flex flex-col items-center justify-center gap-1 text-purple-400 font-medium min-w-[60px]">
         <span className="text-3xl">🎲</span>Cases
       </Link>
