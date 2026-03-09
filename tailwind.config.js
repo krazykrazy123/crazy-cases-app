@@ -2,7 +2,7 @@
 module.exports = {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",  // scans all your JSX/TSX files
+    "./src/**/*.{js,ts,jsx,tsx}",  // ← this scans your JSX files
   ],
   theme: {
     extend: {},
