@@ -51,7 +51,7 @@ function CustomHeader({ balance = { TON: 0, STARS: 47 }, onDepositClick }) {
       )}
 
       <img
-        src="/src/assets/logo.png"
+        src="/assets/logo.png"
         alt="Crazy Cases Logo"
         className="h-12 w-auto object-contain absolute left-1/2 -translate-x-1/2"
       />
@@ -160,13 +160,13 @@ function LiveFeedBar() {
         <div className="inline-flex animate-marquee gap-2">
           {liveDrops.map((drop) => (
             <div key={drop.key} className="relative flex-shrink-0">
-              <img src={`/src/assets/${drop.image}`} alt="" className="w-10 h-10 object-contain rounded-full" />
+              <img src={`assets/${drop.image}`} alt="" className="w-10 h-10 object-contain rounded-full" />
               {drop.id > 50 && <div className="absolute inset-0 rounded-full bg-yellow-400/20 blur-md pointer-events-none" />}
             </div>
           ))}
           {liveDrops.map((drop) => (
             <div key={`dup-${drop.key}`} className="relative flex-shrink-0">
-              <img src={`/src/assets/${drop.image}`} alt="" className="w-10 h-10 object-contain rounded-full" />
+              <img src={`assets/${drop.image}`} alt="" className="w-10 h-10 object-contain rounded-full" />
               {drop.id > 50 && <div className="absolute inset-0 rounded-full bg-yellow-400/20 blur-md pointer-events-none" />}
             </div>
           ))}
@@ -227,12 +227,12 @@ function Home() {
   const [isConnected, setIsConnected] = useState(false);
   const [showDeposit, setShowDeposit] = useState(false);
   const cases = [
-    { name: 'Free', icon: '/src/assets/free case.png', count: 2, path: '/free', color: 'from-yellow-500 to-orange-600' },
-    { name: 'PVP', icon: '/src/assets/5.png', count: 1, badges: ['New', 'PvP'], path: '/rolls', color: 'from-red-500 to-pink-600' },
-    { name: 'Roulette', icon: '/src/assets/cases.png', count: 15, badges: ['New', 'Limit'], color: 'from-green-400 to-emerald-500' },
-    { name: 'Crash', icon: '/src/assets/crash.png', badges: ['New'], path: '/crash', color: 'from-cyan-500 to-blue-600' },
-    { name: 'Crazy Chance', icon: '/src/assets/crazychance.png', count: 6, path: '/crazy-chance', color: 'from-purple-500 to-pink-600' },
-    { name: 'Upgrade', icon: '/src/assets/upgrade.png', description: 'Improve your gifts', path: '/upgrade', color: 'from-indigo-500 to-purple-600' },
+    { name: 'Free', icon: 'assets/free case.png', count: 2, path: '/free', color: 'from-yellow-500 to-orange-600' },
+    { name: 'PVP', icon: 'assets/5.png', count: 1, badges: ['New', 'PvP'], path: '/rolls', color: 'from-red-500 to-pink-600' },
+    { name: 'Roulette', icon: 'assets/cases.png', count: 15, badges: ['New', 'Limit'], color: 'from-green-400 to-emerald-500' },
+    { name: 'Crash', icon: 'assets/crash.png', badges: ['New'], path: '/crash', color: 'from-cyan-500 to-blue-600' },
+    { name: 'Crazy Chance', icon: 'assets/crazychance.png', count: 6, path: '/crazy-chance', color: 'from-purple-500 to-pink-600' },
+    { name: 'Upgrade', icon: 'assets/upgrade.png', description: 'Improve your gifts', path: '/upgrade', color: 'from-indigo-500 to-purple-600' },
   ];
   const rouletteCases = [
     { id: 1, name: 'Bear', price: 199 },
@@ -382,7 +382,7 @@ function Home() {
                       <h3 className="text-base font-bold text-white">{caseItem.name}</h3>
                     </div>
                     <div className="px-4 py-2 flex justify-center">
-                      <img src={`/src/assets/case ${caseItem.id}.png`} alt={caseItem.name} className="w-full max-h-[700px] object-contain scale-200" />
+                      <img src={`assets/case ${caseItem.id}.png`} alt={caseItem.name} className="w-full max-h-[700px] object-contain scale-200" />
                     </div>
                     <div className="px-4 pb-4 text-center">
                       <p className="text-yellow-400 font-medium text-sm mb-3">★{caseItem.price}</p>
@@ -407,8 +407,8 @@ function Home() {
             <div className="p-6 overflow-y-auto" style={{ maxHeight: 'calc(85vh - 64px)' }}>
               <div className="grid grid-cols-2 gap-5 w-full max-w-[440px] mx-auto">
                 {[
-                  { id: 'daily', name: 'Daily Free Case', price: 'Free', icon: '/src/assets/free case.png' },
-                  { id: 'promo', name: 'Promo Code Case', price: 'Free', icon: '/src/assets/cases.png' },
+                  { id: 'daily', name: 'Daily Free Case', price: 'Free', icon: 'assets/free case.png' },
+                  { id: 'promo', name: 'Promo Code Case', price: 'Free', icon: 'assets/cases.png' },
                 ].map((caseItem) => (
                   <div
                     key={caseItem.id}
@@ -473,7 +473,7 @@ function Home() {
                 {[...rouletteGifts, ...rouletteGifts, ...rouletteGifts, ...rouletteGifts, ...rouletteGifts].map((gift, i) => (
                   <div key={i} className="flex-shrink-0 w-[160px] flex justify-center py-2 relative z-10">
                     <img
-                      src={`/src/assets/${gift.image}`}
+                      src={`assets/${gift.image}`}
                       alt={gift.name}
                       className="w-40 h-40 object-contain scale-175 drop-shadow-2xl"
                     />
@@ -584,7 +584,7 @@ function Home() {
               {rouletteGifts.map((gift) => (
                 <div key={gift.id} className="flex flex-col items-center text-center">
                   <div className="w-20 h-20 rounded-2xl bg-[#0f0f0f] p-3 mb-3 shadow-inner">
-                    <img src={`/src/assets/${gift.image}`} alt={gift.name} className="w-full h-full object-contain" />
+                    <img src={`assets/${gift.image}`} alt={gift.name} className="w-full h-full object-contain" />
                   </div>
                   <p className="text-[13px] font-medium text-gray-300 line-clamp-2 leading-tight mb-1">{gift.name}</p>
                   <p className="text-yellow-400 text-sm font-bold">★{Math.floor(100 + Math.random() * 800)}</p>
@@ -620,7 +620,7 @@ function Home() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-cyan-500/30 rounded-[32px] blur-2xl" />
                 <img
-                  src={`/src/assets/${wonGift.image}`}
+                  src={`assets/${wonGift.image}`}
                   alt={wonGift.name}
                   className="w-48 h-48 object-contain relative drop-shadow-[0_0_40px_#a5f3fc] z-10"
                 />
@@ -703,8 +703,8 @@ function Free() {
   const [isSpinning, setIsSpinning] = useState(false);
   const [wonGift, setWonGift] = useState(null);
   const freeCases = [
-    { id: 'daily', name: 'Daily Free Case', price: 'Free', icon: '/src/assets/free case.png', color: 'from-yellow-500 to-orange-600' },
-    { id: 'promo', name: 'Promo Code Case', price: 'Free', icon: '/src/assets/cases.png', color: 'from-purple-500 to-pink-600' },
+    { id: 'daily', name: 'Daily Free Case', price: 'Free', icon: 'assets/free case.png', color: 'from-yellow-500 to-orange-600' },
+    { id: 'promo', name: 'Promo Code Case', price: 'Free', icon: 'assets/cases.png', color: 'from-purple-500 to-pink-600' },
   ];
   const rouletteGifts = Array.from({ length: 60 }, (_, i) => {
     const id = i + 1;
@@ -869,7 +869,7 @@ function Free() {
                       {[...rouletteGifts, ...rouletteGifts, ...rouletteGifts, ...rouletteGifts, ...rouletteGifts].map((gift, i) => (
                         <div key={i} className="flex-shrink-0 w-[160px] flex justify-center py-2">
                           <img
-                            src={`/src/assets/${gift.image}`}
+                            src={`assets/${gift.image}`}
                             alt={gift.name}
                             className="w-40 h-40 object-contain scale-175"
                           />
@@ -916,7 +916,7 @@ function Free() {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-cyan-500/30 rounded-[32px] blur-2xl" />
                 <img
-                  src={`/src/assets/${wonGift.image}`}
+                  src={`assets/${wonGift.image}`}
                   alt={wonGift.name}
                   className="w-48 h-48 object-contain relative drop-shadow-[0_0_40px_#a5f3fc] z-10"
                 />
@@ -1120,7 +1120,7 @@ function Crash() {
         <div className="flex flex-col items-center mt-8 mb-10">
           <video
             ref={runningVideoRef}
-            src="/src/assets/rocket-run-loop.mp4"
+            src="assets/rocket-run-loop.mp4"
             loop
             muted
             playsInline
@@ -1129,7 +1129,7 @@ function Crash() {
           />
           <video
             ref={bustVideoRef}
-            src="/src/assets/rocket-bust.mp4"
+            src="assets/rocket-bust.mp4"
             muted
             playsInline
             className={`w-48 h-48 object-contain mb-4 ${phase !== 'crashed' ? 'hidden' : ''}`}
@@ -1166,7 +1166,7 @@ function Crash() {
             { name: 'Svyat_x', amount: 54, x: 1.09, result: 'win' },
           ].map((player, i) => (
             <div key={i} className="flex items-center gap-4 py-3 border-t border-white/10">
-              <img src="/src/assets/avatar-placeholder.png" alt="Avatar" className="w-10 h-10 rounded-full" />
+              <img src="assets/avatar-placeholder.png" alt="Avatar" className="w-10 h-10 rounded-full" />
               <div className="flex-1">
                 <p className="text-white">{player.name}</p>
               </div>
@@ -1312,7 +1312,7 @@ function Upgrade() {
     <div className="min-h-screen bg-gradient-to-b from-[#0f0f0f] via-[#0a001a] to-[#000000] text-white pt-[135px] pb-[135px] px-4 mx-auto flex flex-col items-center overflow-y-auto" style={appFont}>
       <LiveFeedBar />
       <img
-        src="/src/assets/dog-nft-gifts.png"
+        src="assets/dog-nft-gifts.png"
         alt="Our dog holding NFT gifts"
         className="w-32 h-32 object-contain mx-auto mb-6 drop-shadow-xl"
       />
@@ -1330,7 +1330,7 @@ function Upgrade() {
             <>
               <div className="w-24 h-24 rounded-2xl overflow-hidden mb-3">
                 <img
-                  src={`/src/assets/${selectedGift.image}`}
+                  src={`assets/${selectedGift.image}`}
                   alt={selectedGift.name}
                   className="w-full h-full object-contain scale-125"
                 />
@@ -1357,7 +1357,7 @@ function Upgrade() {
             <>
               <div className="w-24 h-24 rounded-2xl overflow-hidden mb-3">
                 <img
-                  src={`/src/assets/${targetGift.image}`}
+                  src={`assets/${targetGift.image}`}
                   alt={targetGift.name}
                   className="w-full h-full object-contain scale-125"
                 />
@@ -1441,7 +1441,7 @@ function Upgrade() {
                 <div className={`absolute inset-0 bg-gradient-to-br from-${upgradeResult.success ? 'purple' : 'red'}-500/30 to-cyan-500/30 rounded-[32px] blur-2xl`} />
                 {upgradeResult.success ? (
                   <img
-                    src={`/src/assets/${upgradeResult.gift.image}`}
+                    src={`assets/${upgradeResult.gift.image}`}
                     alt={upgradeResult.gift.name}
                     className="w-48 h-48 object-contain relative drop-shadow-[0_0_40px_#a5f3fc] z-10"
                   />
@@ -1491,7 +1491,7 @@ function Upgrade() {
                   onClick={() => handleSelectGift(gift)}
                 >
                   <div className="w-20 h-20 rounded-2xl overflow-hidden bg-[#0f0f0f] p-1 mb-2">
-                    <img src={`/src/assets/${gift.image}`} alt={gift.name} className="w-full h-full object-contain" />
+                    <img src={`assets/${gift.image}`} alt={gift.name} className="w-full h-full object-contain" />
                   </div>
                   <p className="text-[13px] font-medium text-gray-300 line-clamp-2 leading-tight mb-1">{gift.name}</p>
                   <p className="text-yellow-400 text-sm font-bold">★{gift.value}</p>
@@ -1524,7 +1524,7 @@ function Upgrade() {
                   onClick={() => handleSelectTarget(target)}
                 >
                   <div className="w-20 h-20 rounded-2xl overflow-hidden bg-[#0f0f0f] p-1 mb-2">
-                    <img src={`/src/assets/${target.image}`} alt={target.name} className="w-full h-full object-contain" />
+                    <img src={`assets/${target.image}`} alt={target.name} className="w-full h-full object-contain" />
                   </div>
                   <p className="text-[13px] font-medium text-gray-300 line-clamp-2 leading-tight mb-1">{target.displayName}</p>
                   <p className="text-yellow-400 text-sm font-bold">★{target.value}</p>
@@ -1562,7 +1562,7 @@ function Raffles() {
       <LiveFeedBar />
       <div className="w-full max-w-[440px] mb-10">
         <img
-          src="/src/assets/leaderboard.png"
+          src="assets/leaderboard.png"
           alt="Raffles Banner"
           className="w-full object-contain mx-auto drop-shadow-2xl"
         />
@@ -1579,7 +1579,7 @@ function Raffles() {
         </div>
         <div className="flex flex-col items-center mb-6">
           <div className="w-32 h-32 rounded-2xl overflow-hidden mb-3">
-            <img src="/src/assets/5.png" alt="Raffle Prize" className="w-full h-full object-contain scale-125" />
+            <img src="assets/5.png" alt="Raffle Prize" className="w-full h-full object-contain scale-125" />
           </div>
           <p className="text-lg font-bold text-white">Prize: Mystic Relic #5</p>
           <p className="text-yellow-400 text-base">★622 Value</p>
@@ -1701,7 +1701,7 @@ function Tasks() {
       <LiveFeedBar />
       <div className="relative w-full max-w-[440px] mb-8">
         <img
-          src="/src/assets/dog-nft-gifts.png"
+          src="assets/dog-nft-gifts.png"
           alt="Your dog chilling"
           className="absolute -top-20 left-1/2 -translate-x-1/2 z-10 w-32 h-32 object-contain drop-shadow-2xl pointer-events-none"
         />
@@ -1779,7 +1779,7 @@ function Leaderboard() {
       </p>
       <div className="w-full max-w-[440px] mb-16">
         <img
-          src="/src/assets/trophy-pepe.png"
+          src="assets/trophy-pepe.png"
           alt="Pepe holding trophy"
           className="w-full object-contain mx-auto"
         />
@@ -1815,7 +1815,7 @@ function Leaderboard() {
                     <div className="flex justify-center">
                       <div className="w-14 h-14 rounded-xl overflow-hidden bg-transparent">
                         <img
-                          src={`/src/assets/${entry.prizeImage}`}
+                          src={`assets/${entry.prizeImage}`}
                           alt="Prize NFT"
                           className="w-full h-full object-contain scale-125"
                         />
@@ -2097,7 +2097,7 @@ function Rolls() {
               <div className="inline-flex items-center gap-3">
                 <span className="text-purple-400 text-sm tracking-widest font-medium">POT</span>
                 <span className="text-4xl font-black text-white tracking-[-1px]">{pot}</span>
-                <img src="/src/assets/ton.png" alt="TON" className="w-9 h-9 object-contain" />
+                <img src="assets/ton.png" alt="TON" className="w-9 h-9 object-contain" />
               </div>
             </div>
             <div className="flex-1 text-right min-w-[100px]">
@@ -2135,7 +2135,7 @@ function Rolls() {
           </div>
           <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
             {isSpinning || showWinnerPopup ? null : players.length === 0 ? (
-              <img src="/src/assets/logo.png" alt="Logo" className="w-28 h-28 object-contain drop-shadow-2xl" />
+              <img src="assets/logo.png" alt="Logo" className="w-28 h-28 object-contain drop-shadow-2xl" />
             ) : (
               <div className="text-6xl font-black text-white drop-shadow-[0_0_30px_rgba(139,92,246,0.9)]">{clientTimeLeft < 10 ? '0' : ''}{clientTimeLeft}</div>
             )}
@@ -2144,10 +2144,10 @@ function Rolls() {
         <div className="mx-auto mb-8 overflow-x-hidden">
           <div className="inline-flex items-center bg-[#1e1e2e] rounded-3xl p-2.5 gap-1.5 flex-wrap justify-center mx-auto border border-purple-500/30 shadow-lg max-w-full">
             <button onClick={() => setCurrency('TON')} className={`p-2 rounded-2xl flex items-center justify-center min-w-[44px] ${currency === 'TON' ? 'bg-purple-600/20' : ''}`}>
-              <img src="/src/assets/ton.png" alt="TON" className="w-8 h-8 object-contain" />
+              <img src="assets/ton.png" alt="TON" className="w-8 h-8 object-contain" />
             </button>
             <button onClick={() => setCurrency('STARS')} className={`p-2 rounded-2xl flex items-center justify-center min-w-[44px] ${currency === 'STARS' ? 'bg-purple-600/20' : ''}`}>
-              <img src="/src/assets/stars.png" alt="Stars" className="w-8 h-8 object-contain" />
+              <img src="assets/stars.png" alt="Stars" className="w-8 h-8 object-contain" />
             </button>
             <div className="bg-[#0f0f1a] rounded-3xl px-5 py-3 min-w-[110px]">
               <input
