@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <TonConnectUIProvider 
       manifestUrl="https://your-vercel-url.vercel.app/tonconnect-manifest.json"
-      // actionsConfiguration only if needed — remove if causing issues
+      // actionsConfiguration only if needed — remove if not required by your version
       // actionsConfiguration={{ twaReturnUrl: "https://t.me/CrazyCasesChat" }}
     >
       <BrowserRouter>

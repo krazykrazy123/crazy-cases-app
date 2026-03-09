@@ -1676,8 +1676,8 @@ function Raffles() {
 
 function Tasks() {
   const [taskStates, setTaskStates] = useState(
-    Array(9).fill().map(() => ({ status: 'pending' }))
-  );
+  Array.from({ length: 9 }, () => ({ status: 'pending' }))
+);
   const tasks = [
     { id: 0, name: "Join official group chat", link: "https://t.me/CrazyCasesChat", type: "join", bonus: "+5 🦴" },
     { id: 1, name: "Join official Crazy Cases channel", link: "https://t.me/CrazyCasesOfficial", type: "join", bonus: "+5 🦴" },
@@ -2225,7 +2225,13 @@ function Rolls() {
             </div>
             <div className="grid grid-cols-3 gap-3 mb-8">
               {(depositCurrency === 'STARS' ? [500, 2000, 5000] : [1, 5, 10]).map((val) => (
-                <button key={val} onClick={() => setDepositAmount((parseFloat(depositAmount) || 0) + val)} className="bg-[#1e1e2e] hover:bg-[#2a2a3a] py-4 rounded-2xl text-xl font-bold">+{val}</button>
+                <button 
+  key={val} 
+  onClick={() => setDepositAmount(((parseFloat(depositAmount) || 0) + val).toString())}
+  className="bg-[#1e1e2e] hover:bg-[#2a2a3a] py-4 rounded-2xl text-xl font-bold"
+>
+  +{val}
+</button>
               ))}
             </div>
             <div className="bg-[#1e1e2e] rounded-2xl p-6 mb-8">
@@ -2283,7 +2289,11 @@ function App() {
   return (
     <ClientTonConnectProvider>
       <div className="relative min-h-screen w-full bg-gradient-to-b from-[#0f0f0f] via-[#0a001a] to-[#000000] text-white overflow-y-auto" style={appFont}>
-        <CustomHeader isConnected={isConnected} balance="★47" onDepositClick={() => setShowDeposit(true)} />
+        <CustomHeader 
+          isConnected={isConnected} 
+          balance={{ TON: 0, STARS: 47 }}  // use object instead of string
+          onDepositClick={() => setShowDeposit(true)} 
+        />
         <LiveFeedBar />
         <Routes>
           <Route path="/" element={<Home />} />
