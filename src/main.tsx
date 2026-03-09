@@ -5,9 +5,9 @@ import App from './App.tsx';
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import './index.css';
 
-function ErrorBoundary({ children }) {
+function ErrorBoundary({ children }: { children: React.ReactNode }) {
   return (
-    <React.Suspense fallback={<div style={{ color: 'red', padding: '20px' }}>Loading...</div>}>
+    <React.Suspense fallback={<div style={{ color: 'red', padding: '50px', fontSize: '20px' }}>Loading...</div>}>
       {children}
     </React.Suspense>
   );
