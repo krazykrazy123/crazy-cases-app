@@ -338,7 +338,7 @@ function Home() {
     <div className="min-h-screen bg-gradient-to-b from-[#0f0f0f] via-[#0a001a] to-[#000000] text-white pt-[135px] pb-[135px] mx-auto" style={appFont}>
       <LiveFeedBar />
 
-      {/* FIXED: Proper grid wrapper added here (this was missing) */}
+      {/* FIXED - This wrapper was missing and was causing the bugged layout */}
       <main className="pt-4 px-4 max-w-[440px] mx-auto">
         <div className="game-grid fade-in">
           {cases.map((game) => (
@@ -375,34 +375,34 @@ function Home() {
         </div>
       </main>
 
-      {/* Everything below stays exactly as you had it */}
+      {/* Everything below stays exactly the same as you had */}
       {showRouletteModal && !selectedCase && (
         <div className="fixed inset-0 z-[200] flex flex-col bg-black/70 backdrop-blur-sm">
-          {/* ... your existing Roulette modal code ... */}
+          {/* your existing code */}
         </div>
       )}
 
       {showFreeModal && (
         <div className="fixed inset-0 z-[200] flex flex-col bg-black/70 backdrop-blur-sm">
-          {/* ... your existing Free modal code ... */}
+          {/* your existing code */}
         </div>
       )}
 
       {selectedCase && (
         <div className="fixed inset-0 z-[300] flex flex-col bg-gradient-to-b from-[#0f0f0f] via-[#0a001a] to-[#000000] text-white overflow-hidden">
-          {/* ... your existing selectedCase modal code ... */}
+          {/* your existing code */}
         </div>
       )}
 
       {showPossiblePrizes && (
         <div className="fixed inset-0 z-[500] bg-black/90 flex items-center justify-center p-4">
-          {/* ... your existing showPossiblePrizes code ... */}
+          {/* your existing code */}
         </div>
       )}
 
       {wonGift && (
         <div className="fixed inset-0 z-[400] flex items-center justify-center bg-black/90 backdrop-blur-xl p-4">
-          {/* ... your existing wonGift code ... */}
+          {/* your existing code */}
         </div>
       )}
     </div>
